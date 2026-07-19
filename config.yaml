@@ -1,0 +1,21 @@
+server:
+  address: "[::]:80"
+
+cache:
+  directory: "/var/lib/pokedeck/cache"
+  database: "/var/lib/pokedeck/pokedeck.db"
+  # Development may fetch missing records. Set false for a fully offline release.
+  api_fallback: true
+  # 0 means cached content never expires.
+  data_ttl: "0"
+  image_ttl: "0"
+
+precache:
+  enabled: true
+  delay: "0"
+  scan_workers: 8
+  image_workers: 16
+
+ui:
+  # Number of cards appended by each infinite-scroll request.
+  batch_size: 24

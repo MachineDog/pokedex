@@ -1,0 +1,9 @@
+Package: pokedeck
+Version: @VERSION@
+Section: web
+Priority: optional
+Architecture: @ARCH@
+Maintainer: PokéDeck maintainers
+Depends: adduser, systemd
+Description: Web-based multilingual Pokémon Pokédex
+ A Go web service with a packaged SQLite Pokédex database and image cache.

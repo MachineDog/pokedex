@@ -1,0 +1,21 @@
+server:
+  address: "[::]:80"
+
+cache:
+  # The pokedeck service user must have write access to this directory.
+  directory: "/var/lib/pokedeck/cache"
+  database: "/var/lib/pokedeck/pokedeck.db"
+  # Development packages may fill missing records; `make deb-offline` changes this to false.
+  api_fallback: true
+  # 0 means cached content never expires.
+  data_ttl: "0"
+  image_ttl: "0"
+
+precache:
+  enabled: true
+  delay: "10s"
+  scan_workers: 8
+  image_workers: 2
+
+ui:
+  batch_size: 24

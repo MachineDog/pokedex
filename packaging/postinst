@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+if ! getent group pokedeck >/dev/null; then
+    addgroup --system pokedeck
+fi
+if ! getent passwd pokedeck >/dev/null; then
+    adduser --system --ingroup pokedeck --home /var/lib/pokedeck --no-create-home pokedeck
+fi
+install -d -o pokedeck -g pokedeck -m 0750 /var/lib/pokedeck
+if [ ! -f /var/lib/pokedeck/pokedeck.db ]; then
+    install -o pokedeck -g pokedeck -m 0640 /usr/share/pokedeck/pokedeck.db /var/lib/pokedeck/pokedeck.db
+fi
+
+if command -v systemctl >/dev/null; then
+    systemctl daemon-reload || true
+    systemctl enable pokedeck.service || true
+    systemctl restart pokedeck.service || true
+fi
