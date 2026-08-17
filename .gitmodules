@@ -1,0 +1,9 @@
+[submodule "PokeAPI/pokeapi"]
+	path = PokeAPI/pokeapi
+	url = git@github.com:PokeAPI/pokeapi.git
+[submodule "PokeAPI/sprites"]
+	path = PokeAPI/sprites
+	url = git@github.com:PokeAPI/sprites.git
+[submodule "PokeAPI/api-data"]
+	path = PokeAPI/api-data
+	url = git@github.com:PokeAPI/api-data.git
